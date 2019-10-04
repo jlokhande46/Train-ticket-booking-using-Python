@@ -8,8 +8,6 @@ with sqlite3.connect('TrainTicketBooking.db') as db:
     c = db.cursor()
 c.execute('SELECT * FROM Temp WHERE key = 2')
 select=c.fetchall()
-print("Now in sample3")
-print(select[0][0])
 c.execute('SELECT * FROM Trainticket_details WHERE ticketno = ?',[(select[0][0])])
 result=c.fetchall()
 print(result)
@@ -148,10 +146,6 @@ class MyProj:
             self.labl6.grid(row=4, column=4)
             
 
-            #self.labl3 = Label(self.frame, text="    Train Details:", fg="gold", pady=5, bg="dark slate blue", font=("Trebuchet MS", 18))
-            #self.labl3.grid(row=10,column=9,sticky=W)
-            #self.txt7 = Text(self.frame, font=('Trebuchet MS', 12, 'bold'),bd=4,bg='white',width=50,height=8)
-            #self.txt7.grid(row=11,column=9)
             self.labl5 = Label(self.frame, text="\n     Mobile No.:", fg="goldenrod", pady=5, bg="dark slate blue", font=("Trebuchet MS", 18))
             self.labl5.grid(row=12,column=0)
             self.txt8 = Entry(self.frame, font=('Trebuchet MS', 12, 'bold'), bd=4, justify='left',width=20)
@@ -170,7 +164,6 @@ class MyProj:
         if(self.txt1.get()=="" or self.txt4.get()==""):
             messagebox.showerror(parent=self.m,message="Please fill atleast one entry!!",title="Error")
         if(len(self.txt8.get())!=10): 
-            #print(self.temp_mobile[0][3])
             messagebox.showerror(parent=self.m, message="Please enter a valid phone number !!", title="Error")
         #if not (self.txt8.get()==self.temp_mobile[0][3]):
         #    print("HERE",self.txt8.get(),self.temp_mobile[0][3])
